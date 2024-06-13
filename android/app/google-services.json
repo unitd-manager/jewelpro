@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "752166278124",
+    "project_id": "pushnotification-90644",
+    "storage_bucket": "pushnotification-90644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752166278124:android:247c796b0af9e7e6bfe6c9",
+        "android_client_info": {
+          "package_name": "com.EMSMedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLkDT8iityavTLp_Am6BBvhV36704B2AM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
