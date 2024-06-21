@@ -1,4 +1,4 @@
-package com.EMSMedia;
+package com.JewelPro;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

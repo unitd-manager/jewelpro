@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.EMSMedia"
+    namespace "com.JewelPro"
     defaultConfig {
-        applicationId "com.EMSMedia"
+        applicationId "com.JewelPro"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 16
