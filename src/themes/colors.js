@@ -50,7 +50,7 @@ export const commonColor = {
   grayScale7: '#616161',
   grayScale8: '#424242',
   dark2: '#1F222A',
-  primary5: '#52316C',
+  primary5: '#f79120',
   primary6: '#7abd57',
   primaryD: '#544BC3',
   primaryTransparent: '#584CF414',

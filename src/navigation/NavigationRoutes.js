@@ -34,6 +34,7 @@ import Payment from '../containers/tabbar/main/Payment';
 import Articles from '../containers/tabbar/main/Articles';
 import Profile from '../containers/tabbar/main/Profile';
 import PlayAudioGallery from '../components/common/PlayAudioGallery'
+import SchemeDetail from '../containers/tabbar/main/SchemeDetail';
 
 export const StackRoute = {
   Splash,
@@ -72,4 +73,5 @@ export const StackRoute = {
   Articles,
   Profile,
   PlayAudioGallery,
+  SchemeDetail,
 };

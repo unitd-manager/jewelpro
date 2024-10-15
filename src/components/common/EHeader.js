@@ -49,6 +49,6 @@ const localStyles = StyleSheet.create({
     ...styles.ph20,
     ...styles.pv15,
     ...styles.center,
-    backgroundColor:'#532c6d'
+    backgroundColor:'#f89320'
   },
 });

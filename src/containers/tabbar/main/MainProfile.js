@@ -257,65 +257,6 @@ const PhotoGallery = () => {
       });
   };
 
-  const joinForm = () => { 
-    navigation.navigate(StackNav.HomeTab);
-  };
-
-  const onPaymentPress = async () => {
-
-    // if (!categoryFilter) {
-    //     Alert.alert('Please Select Payment Method.');
-    //     return;
-    //   }
-    
-    // if (!totalAmount) {
-    //     Alert.alert('Please enter Amount.');
-    //     return;
-    //   }
-
-    // if (!name.shipping_first_name.trim()) {
-    //     Alert.alert('Please enter your first name.');
-    //     return;
-    //   }
-    //   if (!name.shipping_email.trim()) {
-    //     Alert.alert('Please enter your email.');
-    //     return;
-    //   }
-    //   if (!name.shipping_phone.trim()) {
-    //     Alert.alert('Please enter your phone number.');
-    //     return;
-    //   }
-    //   if (!name.shipping_address1.trim()) {
-    //     Alert.alert('Please enter your address.');
-    //     return;
-    //   }
-    const totalAmount = 2500
-    const amountInPaise = totalAmount * 100;
-    console.log('amountInPaise', amountInPaise);
-    const options = {
-      description: 'Purchase Description',
-      image: 'https://your-company.com/your_image.png',
-      currency: 'INR',
-      key: 'rzp_test_yE3jJN90A3ObCp', // Replace with your Razorpay test/live key
-      amount: amountInPaise, // Amount in currency subunits (e.g., 1000 for INR 10)
-      name: 'United',
-      prefill: {
-        email: name.shipping_email,
-        contact: name.shipping_phone,
-        name: name.shipping_first_name,
-      },
-      theme: {color: '#532C6D'},
-    };
-
-    try {
-      const data = await RazorpayCheckout.open(options);
-      console.log('Payment Successful:', data);
-      joinForm();
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   const [name, setName] = useState({
     shipping_first_name: '',
     shipping_email: '',
@@ -399,7 +340,7 @@ const PhotoGallery = () => {
 
   return (
     <>
-      <EHeader title=" Scheme Form" />
+      <EHeader title=" Profile" />
      
       {/* {loading && (
         <View style={styles.loadingContainer}>
@@ -439,35 +380,10 @@ const PhotoGallery = () => {
           </>
         ) : (
           <>
-            <Text style={styles.cartItemQuantity}>Scheme Name</Text>
-            <TextInput
-              style={styles.quantityInputs}
-              value='Digigold Scheme'
-              onChangeText={text => setName({...name, alternate_number: text})}
-              color="black"
-              keyboardType="default"
-            />
-
-            <Text style={styles.cartItemQuantity}>Amount</Text>
-            <TextInput
-              style={styles.quantityInputs}
-              value='2500'
-              onChangeText={text => setName({...name, alternate_number: text})}
-              color="black"
-              keyboardType="default"
-            />
-             <Text style={styles.cartItemQuantity}>Scheme Date</Text>
-            <TextInput
-              style={styles.quantityInputs}
-              value='09-07-2024'
-              onChangeText={text => setName({...name, alternate_number: text})}
-              color="black"
-              keyboardType="default"
-            />
             <Text style={styles.cartItemQuantity}>Name</Text>
             <TextInput
               style={styles.quantityInputs}
-              value='John'
+              value={name.shipping_first_name}
               onChangeText={text =>
                 setName({...name, shipping_first_name: text})
               }
@@ -477,7 +393,7 @@ const PhotoGallery = () => {
             <Text style={styles.cartItemQuantity}>Email</Text>
             <TextInput
               style={styles.quantityInputs}
-              value='john534@yahoo.com'
+              value={name.shipping_email}
               onChangeText={text => setName({...name, shipping_email: text})}
               color="black"
               keyboardType="email-address"
@@ -485,52 +401,60 @@ const PhotoGallery = () => {
             <Text style={styles.cartItemQuantity}>Phone</Text>
             <TextInput
               style={styles.quantityInputs}
-              value='9898989898'
+              value={name.shipping_phone}
               onChangeText={text => setName({...name, shipping_phone: text})}
               color="black"
               keyboardType="phone-pad"
             />
           </>
         )}
+        <Text style={styles.cartItemQuantity}>Alternate Number</Text>
+        <TextInput
+          style={styles.quantityInputs}
+          value={name.alternate_number}
+          onChangeText={text => setName({...name, alternate_number: text})}
+          color="black"
+          keyboardType="default"
+        />
 
-        {/* <Text style={styles.cartItemQuantity4}>Date of Birth</Text> */}
+        <Text style={styles.cartItemQuantity4}>Date of Birth</Text>
         <View style={styles.filtersContainer}>
-          {/* <View style={styles.pickerContainer}> */}
+          <View style={styles.pickerContainer}>
             {/* Date of Birth */}
-            {/* <TouchableOpacity onPress={showDatePicker}>
+            <TouchableOpacity onPress={showDatePicker}>
               <Text style={styles.dateText}>
                 {dateOfBirth ? dateOfBirth : 'Select Date'}
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
             {/* Date picker modal */}
-            {/* <DateTimePickerModal
+            <DateTimePickerModal
               isVisible={isDatePickerVisible}
               mode="date"
               onConfirm={handleConfirm}
               onCancel={hideDatePicker}
-            /> */}
-          {/* </View> */}
-          {/* <Text style={styles.cartItemQuantity3}>Date of Baiyath</Text> */}
-          {/* <View style={styles.pickerContainer1}> */}
+            />
+          </View>
+          <Text style={styles.cartItemQuantity3}>Date of Baiyath</Text>
+          <View style={styles.pickerContainer1}>
             {/* Date of Birth */}
 
-            {/* <TouchableOpacity onPress={showDatePickerTo}>
+            <TouchableOpacity onPress={showDatePickerTo}>
               <Text style={styles.dateText}>
                 {dateOfBaiyath ? dateOfBaiyath : 'Select Date'}
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
             {/* Date picker modal */}
-            {/* <DateTimePickerModal
+            <DateTimePickerModal
               isVisible={isDatePickerVisibleTo}
               mode="date"
               onConfirm={handleConfirmTo}
               onCancel={hideDatePickerTo}
-            /> */}
-          {/* </View> */}
+            />
+          </View>
         </View>
-        {/* <Text style={styles.cartItemQuantity4}>Gender</Text>
+        <Text style={styles.cartItemQuantity4}>Gender</Text>
         <View style={styles.filtersContainer}>
           <View style={styles.pickerContainer}>
             <Picker
@@ -550,8 +474,8 @@ const PhotoGallery = () => {
                   />
                 ))}
             </Picker>
-          </View> */}
-          {/* <Text style={styles.cartItemQuantity1}>Are you a Yaseeni?</Text>
+          </View>
+          <Text style={styles.cartItemQuantity1}>Are you a Yaseeni?</Text>
           <View style={styles.pickerContainer1}>
             <Picker
               dropdownIconColor="blue"
@@ -580,8 +504,8 @@ const PhotoGallery = () => {
           color="black"
           keyboardType="default"
         />
-        <Text style={styles.cartItemQuantity4}>Blood Group</Text> */}
-        {/* <View style={styles.filtersContainer}>
+        <Text style={styles.cartItemQuantity4}>Blood Group</Text>
+        <View style={styles.filtersContainer}>
           <View style={styles.pickerContainer}>
             <Picker
               dropdownIconColor="blue"
@@ -621,8 +545,8 @@ const PhotoGallery = () => {
                 ))}
             </Picker>
           </View>
-        </View> */}
-        {/* <Text style={styles.cartItemQuantity}>Address</Text>
+        </View>
+        <Text style={styles.cartItemQuantity}>Address</Text>
         <TextInput
           style={styles.quantityInputs}
           value={name.shipping_address1}
@@ -667,8 +591,8 @@ const PhotoGallery = () => {
                 />
               ))}
           </Picker>
-        </View> */}
-        {/* <Text style={styles.cartItemQuantity}>Code</Text>
+        </View>
+        <Text style={styles.cartItemQuantity}>Code</Text>
         <TextInput
           style={styles.quantityInputs}
           value={name.shipping_address_po_code}
@@ -693,20 +617,20 @@ const PhotoGallery = () => {
           onChangeText={text => setName({...name, pg_specialization: text})}
           color="black"
           keyboardType="default"
-        /> */}
+        />
       </ScrollView>
       <View style={styles.filtersContainer1}>
-  {/* <View style={localStyles.pickerr}>
-    <Text style={localStyles.cartItemQuantity7}> My Profile</Text>
-  </View> */}
-  {/* <View style={localStyles.pickerContainer10}> */}
-    <TouchableOpacity
-      onPress={() => onPaymentPress()}
-      style={[styles.flipButton1, styles.backButton1]}>
-      <Text style={styles.flipButtonText}>Join Scheme</Text>
-    </TouchableOpacity>
-  {/* </View> */}
-</View>
+        <View style={styles.pickerContainer5}>
+          <Text style={styles.cartItemQuantity7}> My Profile</Text>
+        </View>
+        <View style={styles.pickerContainer10}>
+          <TouchableOpacity
+            onPress={() => addDeliveryAddress()}
+            style={[styles.flipButton1, styles.backButton1]}>
+            <Text style={styles.flipButtonText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </>
   );
 };
@@ -733,11 +657,11 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   filtersContainer1: {
-    // borderTopEndRadius: 58,
-    // borderBottomStartRadius: 58,
+    borderTopEndRadius: 58,
+    borderBottomStartRadius: 58,
     // borderBottomRightRadius: 5,
     // borderTopLeftRadius: 5,
-    backgroundColor: '#f7b800',
+    backgroundColor: 'grey',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -897,7 +821,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   flipButton1: {
-    backgroundColor: '#f7b800',
+    backgroundColor: 'green',
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',

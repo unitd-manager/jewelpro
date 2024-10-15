@@ -181,6 +181,10 @@ export default function StackNavigation() {
         name={StackNav.PlayAudioGallery}
         component={StackRoute.PlayAudioGallery}
       />
+       <Stack.Screen
+        name={StackNav.SchemeDetail}
+        component={StackRoute.SchemeDetail}
+      />
     </Stack.Navigator>
     </AuthContext.Provider>
   );

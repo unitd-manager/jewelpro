@@ -36,4 +36,5 @@ export const StackNav = {
   Articles:'Articles',
   Profile:'Profile',
   PlayAudioGallery:'PlayAudioGallery',
+  SchemeDetail:'SchemeDetail',
 };

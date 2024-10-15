@@ -354,7 +354,7 @@ const localStyles = StyleSheet.create({
     borderLeftWidth: moderateScale(1.5),
     borderRightWidth: moderateScale(1.5),
     borderRadius: 10,
-    color: '#222'
+    color: 'red'
   },
   backgroundImage: {
     flex: 1,
